@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_lazy_contents",
+  "info": {
+    "singularName": "about-lazy-content",
+    "pluralName": "about-lazy-contents",
+    "displayName": "AboutLazyContent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "component": "about-page.content",
+      "repeatable": true
+    },
+    "SocialRating": {
+      "type": "component",
+      "component": "about-page.social-rating",
+      "repeatable": true
+    }
+  }
+}

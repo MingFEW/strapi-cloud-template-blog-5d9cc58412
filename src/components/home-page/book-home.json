@@ -1,0 +1,43 @@
+{
+  "collectionName": "components_home_page_book_homes",
+  "info": {
+    "displayName": "BookHome",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "midText": {
+      "type": "string"
+    },
+    "bookLink": {
+      "type": "string"
+    },
+    "leftText": {
+      "type": "string"
+    },
+    "leftImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rightText": {
+      "type": "string"
+    },
+    "rightImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_about_page_social_ratings",
+  "info": {
+    "displayName": "SocialRating",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "stars": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

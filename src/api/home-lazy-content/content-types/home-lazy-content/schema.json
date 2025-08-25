@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_lazy_contents",
+  "info": {
+    "singularName": "home-lazy-content",
+    "pluralName": "home-lazy-contents",
+    "displayName": "HomeLazyContent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MenuBlock": {
+      "type": "component",
+      "component": "home-page.menu-home",
+      "repeatable": false
+    },
+    "MenuItems": {
+      "type": "component",
+      "component": "home-page.menu-item-home",
+      "repeatable": true
+    },
+    "Review": {
+      "type": "component",
+      "component": "home-page.review-home",
+      "repeatable": false
+    },
+    "VideoBar": {
+      "type": "component",
+      "component": "home-page.video-bar-home",
+      "repeatable": false
+    },
+    "instagram": {
+      "type": "component",
+      "component": "home-page.ig-blk",
+      "repeatable": false
+    }
+  }
+}

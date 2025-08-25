@@ -1,5 +1,48 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AboutPageContent extends Struct.ComponentSchema {
+  collectionName: 'components_about_page_contents';
+  info: {
+    displayName: 'content';
+    icon: 'crown';
+  };
+  attributes: {
+    desc: Schema.Attribute.Text;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    template: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'right'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface AboutPageSocialRating extends Struct.ComponentSchema {
+  collectionName: 'components_about_page_social_ratings';
+  info: {
+    displayName: 'SocialRating';
+    icon: 'star';
+  };
+  attributes: {
+    stars: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageBookHome extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_book_homes';
+  info: {
+    displayName: 'BookHome';
+    icon: 'book';
+  };
+  attributes: {
+    bookLink: Schema.Attribute.String;
+    leftImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    leftText: Schema.Attribute.String;
+    midText: Schema.Attribute.String;
+    rightImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    rightText: Schema.Attribute.String;
+  };
+}
+
 export interface HomePageHeroHome extends Struct.ComponentSchema {
   collectionName: 'components_home_page_hero_homes';
   info: {
@@ -27,6 +70,83 @@ export interface HomePageHeroHome extends Struct.ComponentSchema {
     >;
     rightThirdLink: Schema.Attribute.String;
     rightThirdText: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageIgBlk extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_ig_blks';
+  info: {
+    displayName: 'igBlk';
+    icon: 'grid';
+  };
+  attributes: {
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageMenuHome extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_menu_homes';
+  info: {
+    displayName: 'MenuHome';
+    icon: 'bulletList';
+  };
+  attributes: {
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageMenuItemHome extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_menu_item_homes';
+  info: {
+    displayName: 'MenuItemHome';
+    icon: 'database';
+  };
+  attributes: {
+    desc: Schema.Attribute.Text;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    link: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageReviewHome extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_review_homes';
+  info: {
+    displayName: 'ReviewHome';
+    icon: 'message';
+  };
+  attributes: {
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface HomePageVideoBarHome extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_video_bar_homes';
+  info: {
+    displayName: 'VideoBarHome';
+    icon: 'chartPie';
+  };
+  attributes: {
+    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface SharedContactBlk extends Struct.ComponentSchema {
+  collectionName: 'components_shared_contact_blks';
+  info: {
+    displayName: 'ContactBlk';
+    icon: 'earth';
+  };
+  attributes: {
+    address: Schema.Attribute.String;
+    email: Schema.Attribute.String;
+    img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mapImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    openTime: Schema.Attribute.Text;
+    phone: Schema.Attribute.String;
   };
 }
 
@@ -95,7 +215,16 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'about-page.content': AboutPageContent;
+      'about-page.social-rating': AboutPageSocialRating;
+      'home-page.book-home': HomePageBookHome;
       'home-page.hero-home': HomePageHeroHome;
+      'home-page.ig-blk': HomePageIgBlk;
+      'home-page.menu-home': HomePageMenuHome;
+      'home-page.menu-item-home': HomePageMenuItemHome;
+      'home-page.review-home': HomePageReviewHome;
+      'home-page.video-bar-home': HomePageVideoBarHome;
+      'shared.contact-blk': SharedContactBlk;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
