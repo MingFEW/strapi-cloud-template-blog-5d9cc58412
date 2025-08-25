@@ -1,0 +1,72 @@
+{
+  "collectionName": "components_home_page_hero_homes",
+  "info": {
+    "displayName": "HeroHome",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "mainTitle": {
+      "type": "string"
+    },
+    "mainImg": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rightSecondText": {
+      "type": "string"
+    },
+    "rightSecondImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rightSecondLink": {
+      "type": "string"
+    },
+    "rightThirdText": {
+      "type": "string"
+    },
+    "rightThirdImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rightThirdLink": {
+      "type": "string"
+    },
+    "rightFourthText": {
+      "type": "string"
+    },
+    "rightFourthImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "rightFourthLink": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

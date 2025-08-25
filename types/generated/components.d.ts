@@ -1,5 +1,35 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface HomePageHeroHome extends Struct.ComponentSchema {
+  collectionName: 'components_home_page_hero_homes';
+  info: {
+    displayName: 'HeroHome';
+    icon: 'dashboard';
+  };
+  attributes: {
+    mainImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    mainTitle: Schema.Attribute.String;
+    rightFourthImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    rightFourthLink: Schema.Attribute.String;
+    rightFourthText: Schema.Attribute.String;
+    rightSecondImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    rightSecondLink: Schema.Attribute.String;
+    rightSecondText: Schema.Attribute.String;
+    rightThirdImg: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    rightThirdLink: Schema.Attribute.String;
+    rightThirdText: Schema.Attribute.String;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -65,6 +95,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'home-page.hero-home': HomePageHeroHome;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
