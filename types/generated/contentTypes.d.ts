@@ -431,78 +431,6 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
-  collectionName: 'articles';
-  info: {
-    description: 'Create your blog content';
-    displayName: 'Article';
-    pluralName: 'articles';
-    singularName: 'article';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
-    blocks: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.quote', 'shared.rich-text', 'shared.slider']
-    >;
-    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    cover: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 80;
-      }>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::article.article'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID<'title'>;
-    title: Schema.Attribute.String;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
-  collectionName: 'authors';
-  info: {
-    description: 'Create authors for your content';
-    displayName: 'Author';
-    pluralName: 'authors';
-    singularName: 'author';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    email: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::author.author'
-    > &
-      Schema.Attribute.Private;
-    name: Schema.Attribute.String;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -515,7 +443,6 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -564,12 +491,12 @@ export interface ApiContactSectionContactSection
   };
 }
 
-export interface ApiFeedbackFeedback extends Struct.CollectionTypeSchema {
-  collectionName: 'feedbacks';
+export interface ApiDishNoteDishNote extends Struct.SingleTypeSchema {
+  collectionName: 'dish_notes';
   info: {
-    displayName: 'Feedback';
-    pluralName: 'feedbacks';
-    singularName: 'feedback';
+    displayName: 'DishNote';
+    pluralName: 'dish-notes';
+    singularName: 'dish-note';
   };
   options: {
     draftAndPublish: true;
@@ -578,17 +505,180 @@ export interface ApiFeedbackFeedback extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    date: Schema.Attribute.Date;
+    dishNote: Schema.Attribute.Component<'shared.dish-note-item', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::feedback.feedback'
+      'api::dish-note.dish-note'
     > &
       Schema.Attribute.Private;
-    location: Schema.Attribute.String;
-    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    quote: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDishDish extends Struct.CollectionTypeSchema {
+  collectionName: 'dishes';
+  info: {
+    displayName: 'Dish';
+    pluralName: 'dishes';
+    singularName: 'dish';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    desc: Schema.Attribute.String;
+    food_category: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::food-category.food-category'
+    >;
+    food_level: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::food-level.food-level'
+    >;
+    food_sub_groups: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::food-size.food-size'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'> &
+      Schema.Attribute.Private;
+    prefix: Schema.Attribute.String;
+    price: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    sizes: Schema.Attribute.Component<'dish.size', true>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFoodCategoryFoodCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'food_categories';
+  info: {
+    displayName: 'Food Category';
+    pluralName: 'food-categories';
+    singularName: 'food-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dishes: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'>;
+    img: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::food-category.food-category'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFoodLevelFoodLevel extends Struct.CollectionTypeSchema {
+  collectionName: 'food_levels';
+  info: {
+    displayName: 'Food Level';
+    pluralName: 'food-levels';
+    singularName: 'food-level';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dishes: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::food-level.food-level'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFoodSizeFoodSize extends Struct.CollectionTypeSchema {
+  collectionName: 'food_sizes';
+  info: {
+    displayName: 'Food Sub Group';
+    pluralName: 'food-sizes';
+    singularName: 'food-size';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    dish: Schema.Attribute.Relation<'manyToOne', 'api::dish.dish'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::food-size.food-size'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
+  collectionName: 'food_types';
+  info: {
+    displayName: 'Food Type';
+    pluralName: 'food-types';
+    singularName: 'food-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    heroImg: Schema.Attribute.Media<'images' | 'files'>;
+    isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    jpTypoImg: Schema.Attribute.Media<'images' | 'files'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::food-type.food-type'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    subTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1203,11 +1293,14 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-lazy-content.about-lazy-content': ApiAboutLazyContentAboutLazyContent;
       'api::about.about': ApiAboutAbout;
-      'api::article.article': ApiArticleArticle;
-      'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::contact-section.contact-section': ApiContactSectionContactSection;
-      'api::feedback.feedback': ApiFeedbackFeedback;
+      'api::dish-note.dish-note': ApiDishNoteDishNote;
+      'api::dish.dish': ApiDishDish;
+      'api::food-category.food-category': ApiFoodCategoryFoodCategory;
+      'api::food-level.food-level': ApiFoodLevelFoodLevel;
+      'api::food-size.food-size': ApiFoodSizeFoodSize;
+      'api::food-type.food-type': ApiFoodTypeFoodType;
       'api::global.global': ApiGlobalGlobal;
       'api::home-lazy-content.home-lazy-content': ApiHomeLazyContentHomeLazyContent;
       'api::home-page.home-page': ApiHomePageHomePage;
