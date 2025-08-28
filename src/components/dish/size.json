@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_dish_sizes",
+  "info": {
+    "displayName": "size"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

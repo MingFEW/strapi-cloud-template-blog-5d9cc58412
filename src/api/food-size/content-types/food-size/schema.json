@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "food_sizes",
+  "info": {
+    "singularName": "food-size",
+    "pluralName": "food-sizes",
+    "displayName": "Food Sub Group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": false
+    },
+    "dish": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::dish.dish",
+      "inversedBy": "food_sub_groups"
+    }
+  }
+}

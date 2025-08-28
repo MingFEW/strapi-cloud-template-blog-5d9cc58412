@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "food_levels",
+  "info": {
+    "singularName": "food-level",
+    "pluralName": "food-levels",
+    "displayName": "Food Level"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "dishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dish.dish",
+      "mappedBy": "food_level"
+    }
+  }
+}

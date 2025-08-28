@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "food_categories",
+  "info": {
+    "singularName": "food-category",
+    "pluralName": "food-categories",
+    "displayName": "Food Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "dishes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dish.dish",
+      "mappedBy": "food_category"
+    }
+  }
+}

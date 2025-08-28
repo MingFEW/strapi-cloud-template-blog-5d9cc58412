@@ -27,6 +27,17 @@ export interface AboutPageSocialRating extends Struct.ComponentSchema {
   };
 }
 
+export interface DishSize extends Struct.ComponentSchema {
+  collectionName: 'components_dish_sizes';
+  info: {
+    displayName: 'size';
+  };
+  attributes: {
+    price: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface HomePageBookHome extends Struct.ComponentSchema {
   collectionName: 'components_home_page_book_homes';
   info: {
@@ -150,6 +161,19 @@ export interface SharedContactBlk extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedDishNoteItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_dish_note_items';
+  info: {
+    displayName: 'DishNoteItem';
+    icon: 'bulletList';
+  };
+  attributes: {
+    desc: Schema.Attribute.String;
+    icon: Schema.Attribute.Media<'images' | 'files'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -217,6 +241,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'about-page.content': AboutPageContent;
       'about-page.social-rating': AboutPageSocialRating;
+      'dish.size': DishSize;
       'home-page.book-home': HomePageBookHome;
       'home-page.hero-home': HomePageHeroHome;
       'home-page.ig-blk': HomePageIgBlk;
@@ -225,6 +250,7 @@ declare module '@strapi/strapi' {
       'home-page.review-home': HomePageReviewHome;
       'home-page.video-bar-home': HomePageVideoBarHome;
       'shared.contact-blk': SharedContactBlk;
+      'shared.dish-note-item': SharedDishNoteItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

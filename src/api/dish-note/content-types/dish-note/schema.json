@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "dish_notes",
+  "info": {
+    "singularName": "dish-note",
+    "pluralName": "dish-notes",
+    "displayName": "DishNote"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dishNote": {
+      "type": "component",
+      "component": "shared.dish-note-item",
+      "repeatable": true
+    }
+  }
+}
