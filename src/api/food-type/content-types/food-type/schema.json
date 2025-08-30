@@ -19,6 +19,12 @@
       "type": "boolean",
       "default": false
     },
+    "displayTitle": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
     "heroImg": {
       "type": "media",
       "multiple": false,
@@ -36,8 +42,13 @@
         "files"
       ]
     },
-    "subTitle": {
-      "type": "string"
+    "graphImg": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }

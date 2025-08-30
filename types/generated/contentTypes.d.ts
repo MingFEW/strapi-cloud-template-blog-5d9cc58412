@@ -637,7 +637,9 @@ export interface ApiFoodSizeFoodSize extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    desc: Schema.Attribute.Text;
     dish: Schema.Attribute.Relation<'manyToOne', 'api::dish.dish'>;
+    img: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -667,6 +669,8 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    displayTitle: Schema.Attribute.String;
+    graphImg: Schema.Attribute.Media<'images' | 'files'>;
     heroImg: Schema.Attribute.Media<'images' | 'files'>;
     isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     jpTypoImg: Schema.Attribute.Media<'images' | 'files'>;
@@ -776,6 +780,35 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'shared.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNoteForSpecialNoteForSpecial
+  extends Struct.SingleTypeSchema {
+  collectionName: 'note_for_specials';
+  info: {
+    displayName: 'NoteForSpecial';
+    pluralName: 'note-for-specials';
+    singularName: 'note-for-special';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::note-for-special.note-for-special'
+    > &
+      Schema.Attribute.Private;
+    notes: Schema.Attribute.Component<'shared.dish-note-item', true>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1304,6 +1337,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home-lazy-content.home-lazy-content': ApiHomeLazyContentHomeLazyContent;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::note-for-special.note-for-special': ApiNoteForSpecialNoteForSpecial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
