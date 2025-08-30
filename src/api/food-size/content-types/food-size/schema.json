@@ -25,6 +25,17 @@
       "relation": "manyToOne",
       "target": "api::dish.dish",
       "inversedBy": "food_sub_groups"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "note_for_specials",
+  "info": {
+    "singularName": "note-for-special",
+    "pluralName": "note-for-specials",
+    "displayName": "NoteForSpecial"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "notes": {
+      "type": "component",
+      "component": "shared.dish-note-item",
+      "repeatable": true
+    }
+  }
+}
