@@ -61,11 +61,9 @@ export interface HomePageHeroHome extends Struct.ComponentSchema {
     icon: 'dashboard';
   };
   attributes: {
-    mainImg: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    mainImg: Schema.Attribute.Media<'images' | 'files', true>;
     mainTitle: Schema.Attribute.String;
+    mainVideo: Schema.Attribute.Media<'files' | 'videos'>;
     rightFourthImg: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
