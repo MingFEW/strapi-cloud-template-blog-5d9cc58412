@@ -46,6 +46,12 @@
       "relation": "oneToMany",
       "target": "api::food-size.food-size",
       "mappedBy": "dish"
+    },
+    "food_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::food-type.food-type",
+      "inversedBy": "dishes"
     }
   }
 }

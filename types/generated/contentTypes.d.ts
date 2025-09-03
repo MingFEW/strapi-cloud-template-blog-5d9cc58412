@@ -546,6 +546,10 @@ export interface ApiDishDish extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::food-size.food-size'
     >;
+    food_type: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::food-type.food-type'
+    >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'> &
       Schema.Attribute.Private;
@@ -669,6 +673,8 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    desc: Schema.Attribute.String & Schema.Attribute.Required;
+    dishes: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'>;
     displayTitle: Schema.Attribute.String;
     graphImg: Schema.Attribute.Media<'images' | 'files'>;
     heroImg: Schema.Attribute.Media<'images' | 'files'>;
@@ -682,6 +688,8 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     subTitle: Schema.Attribute.String;
+    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
