@@ -14,9 +14,7 @@
       "multiple": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ]
     },
     "rightSecondText": {
@@ -66,6 +64,14 @@
     },
     "rightFourthLink": {
       "type": "string"
+    },
+    "mainVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files",
+        "videos"
+      ]
     }
   },
   "config": {}
