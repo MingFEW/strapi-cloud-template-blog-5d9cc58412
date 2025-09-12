@@ -41,11 +41,11 @@
       "component": "dish.size",
       "repeatable": true
     },
-    "food_sub_groups": {
+    "food_sub_group": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::food-size.food-size",
-      "mappedBy": "dish"
+      "inversedBy": "dishes"
     },
     "food_type": {
       "type": "relation",
