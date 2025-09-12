@@ -20,11 +20,11 @@
       "targetField": "title",
       "required": false
     },
-    "dish": {
+    "dishes": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::dish.dish",
-      "inversedBy": "food_sub_groups"
+      "mappedBy": "food_sub_group"
     },
     "desc": {
       "type": "text"

@@ -542,8 +542,8 @@ export interface ApiDishDish extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::food-level.food-level'
     >;
-    food_sub_groups: Schema.Attribute.Relation<
-      'oneToMany',
+    food_sub_group: Schema.Attribute.Relation<
+      'manyToOne',
       'api::food-size.food-size'
     >;
     food_type: Schema.Attribute.Relation<
@@ -642,7 +642,7 @@ export interface ApiFoodSizeFoodSize extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     desc: Schema.Attribute.Text;
-    dish: Schema.Attribute.Relation<'manyToOne', 'api::dish.dish'>;
+    dishes: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'>;
     img: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
