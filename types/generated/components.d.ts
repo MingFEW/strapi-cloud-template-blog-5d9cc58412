@@ -154,6 +154,7 @@ export interface SharedContactBlk extends Struct.ComponentSchema {
     email: Schema.Attribute.String;
     img: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     mapImg: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mapLink: Schema.Attribute.String;
     openTime: Schema.Attribute.Text;
     phone: Schema.Attribute.String;
   };
