@@ -18,6 +18,9 @@
     "openTime": {
       "type": "text"
     },
+    "mapLink": {
+      "type": "string"
+    },
     "mapImg": {
       "type": "media",
       "multiple": false,
