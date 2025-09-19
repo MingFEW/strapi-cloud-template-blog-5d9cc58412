@@ -650,8 +650,13 @@ export interface ApiFoodSizeFoodSize extends Struct.CollectionTypeSchema {
       'api::food-size.food-size'
     > &
       Schema.Attribute.Private;
+    positionOfImg: Schema.Attribute.Enumeration<['left', 'right']> &
+      Schema.Attribute.DefaultTo<'left'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
+    templateOfImg: Schema.Attribute.Enumeration<
+      ['round16', 'roundTop', 'roundTopRight']
+    >;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -673,7 +678,6 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    desc: Schema.Attribute.String & Schema.Attribute.Required;
     dishes: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'>;
     displayTitle: Schema.Attribute.String;
     graphImg: Schema.Attribute.Media<'images' | 'files'>;
@@ -687,9 +691,8 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
     subTitle: Schema.Attribute.String;
-    thumbnail: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
