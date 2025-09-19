@@ -36,6 +36,22 @@
         "images",
         "files"
       ]
+    },
+    "positionOfImg": {
+      "type": "enumeration",
+      "default": "left",
+      "enum": [
+        "left",
+        "right"
+      ]
+    },
+    "templateOfImg": {
+      "type": "enumeration",
+      "enum": [
+        "round16",
+        "roundTop",
+        "roundTopRight"
+      ]
     }
   }
 }
