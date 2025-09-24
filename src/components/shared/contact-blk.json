@@ -19,7 +19,7 @@
       "type": "text"
     },
     "mapLink": {
-      "type": "string"
+      "type": "text"
     },
     "mapImg": {
       "type": "media",
