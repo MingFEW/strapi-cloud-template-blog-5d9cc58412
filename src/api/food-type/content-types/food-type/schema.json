@@ -64,6 +64,9 @@
       "type": "component",
       "component": "shared.custom-food-type",
       "repeatable": false
+    },
+    "order": {
+      "type": "integer"
     }
   }
 }

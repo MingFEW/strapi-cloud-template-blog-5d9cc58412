@@ -691,6 +691,7 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
       'api::food-type.food-type'
     > &
       Schema.Attribute.Private;
+    order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
     subTitle: Schema.Attribute.String;
