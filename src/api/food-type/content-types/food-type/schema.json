@@ -59,6 +59,11 @@
       "relation": "oneToMany",
       "target": "api::dish.dish",
       "mappedBy": "food_type"
+    },
+    "extra": {
+      "type": "component",
+      "component": "shared.custom-food-type",
+      "repeatable": false
     }
   }
 }

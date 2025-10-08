@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_custom_food_types",
+  "info": {
+    "displayName": "customFoodType",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "subDesc": {
+      "type": "richtext"
+    },
+    "desc": {
+      "type": "blocks"
+    },
+    "secondDesc": {
+      "type": "blocks"
+    },
+    "combo": {
+      "type": "component",
+      "component": "shared.combo-set",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

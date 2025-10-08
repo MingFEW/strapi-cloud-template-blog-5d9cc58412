@@ -143,6 +143,18 @@ export interface HomePageVideoBarHome extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedComboSet extends Struct.ComponentSchema {
+  collectionName: 'components_shared_combo_sets';
+  info: {
+    displayName: 'comboSet';
+    icon: 'cloud';
+  };
+  attributes: {
+    items: Schema.Attribute.JSON;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedContactBlk extends Struct.ComponentSchema {
   collectionName: 'components_shared_contact_blks';
   info: {
@@ -157,6 +169,20 @@ export interface SharedContactBlk extends Struct.ComponentSchema {
     mapLink: Schema.Attribute.Text;
     openTime: Schema.Attribute.Text;
     phone: Schema.Attribute.String;
+  };
+}
+
+export interface SharedCustomFoodType extends Struct.ComponentSchema {
+  collectionName: 'components_shared_custom_food_types';
+  info: {
+    displayName: 'customFoodType';
+    icon: 'layout';
+  };
+  attributes: {
+    combo: Schema.Attribute.Component<'shared.combo-set', true>;
+    desc: Schema.Attribute.Blocks;
+    secondDesc: Schema.Attribute.Blocks;
+    subDesc: Schema.Attribute.RichText;
   };
 }
 
@@ -248,7 +274,9 @@ declare module '@strapi/strapi' {
       'home-page.menu-item-home': HomePageMenuItemHome;
       'home-page.review-home': HomePageReviewHome;
       'home-page.video-bar-home': HomePageVideoBarHome;
+      'shared.combo-set': SharedComboSet;
       'shared.contact-blk': SharedContactBlk;
+      'shared.custom-food-type': SharedCustomFoodType;
       'shared.dish-note-item': SharedDishNoteItem;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;

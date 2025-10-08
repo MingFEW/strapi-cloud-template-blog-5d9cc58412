@@ -680,6 +680,7 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     dishes: Schema.Attribute.Relation<'oneToMany', 'api::dish.dish'>;
     displayTitle: Schema.Attribute.String;
+    extra: Schema.Attribute.Component<'shared.custom-food-type', false>;
     graphImg: Schema.Attribute.Media<'images' | 'files'>;
     heroImg: Schema.Attribute.Media<'images' | 'files'>;
     isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
