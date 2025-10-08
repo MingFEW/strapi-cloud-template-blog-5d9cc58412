@@ -180,8 +180,8 @@ export interface SharedCustomFoodType extends Struct.ComponentSchema {
   };
   attributes: {
     combo: Schema.Attribute.Component<'shared.combo-set', true>;
-    desc: Schema.Attribute.Blocks;
-    secondDesc: Schema.Attribute.Blocks;
+    desc: Schema.Attribute.RichText;
+    secoundDesc: Schema.Attribute.RichText;
     subDesc: Schema.Attribute.RichText;
   };
 }

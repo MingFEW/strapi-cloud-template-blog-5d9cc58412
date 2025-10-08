@@ -10,10 +10,10 @@
       "type": "richtext"
     },
     "desc": {
-      "type": "blocks"
+      "type": "richtext"
     },
-    "secondDesc": {
-      "type": "blocks"
+    "secoundDesc": {
+      "type": "richtext"
     },
     "combo": {
       "type": "component",
