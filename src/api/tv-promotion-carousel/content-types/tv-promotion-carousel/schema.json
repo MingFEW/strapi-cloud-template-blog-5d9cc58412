@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "tv_promotion_carousels",
+  "info": {
+    "singularName": "tv-promotion-carousel",
+    "pluralName": "tv-promotion-carousels",
+    "displayName": "TV promotion Carousel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "imgs": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
