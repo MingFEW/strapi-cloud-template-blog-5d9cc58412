@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "tv_promotion_videos",
+  "info": {
+    "singularName": "tv-promotion-video",
+    "pluralName": "tv-promotion-videos",
+    "displayName": "TV promotion Video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

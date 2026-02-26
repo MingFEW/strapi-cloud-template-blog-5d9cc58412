@@ -26,9 +26,6 @@
     "displayTitle": {
       "type": "string"
     },
-    "subTitle": {
-      "type": "string"
-    },
     "heroImg": {
       "type": "media",
       "multiple": false,
@@ -67,6 +64,9 @@
     },
     "order": {
       "type": "integer"
+    },
+    "htmlContent": {
+      "type": "richtext"
     }
   }
 }

@@ -683,6 +683,7 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
     extra: Schema.Attribute.Component<'shared.custom-food-type', false>;
     graphImg: Schema.Attribute.Media<'images' | 'files'>;
     heroImg: Schema.Attribute.Media<'images' | 'files'>;
+    htmlContent: Schema.Attribute.RichText;
     isDefault: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     jpTypoImg: Schema.Attribute.Media<'images' | 'files'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -694,7 +695,6 @@ export interface ApiFoodTypeFoodType extends Struct.CollectionTypeSchema {
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    subTitle: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -856,6 +856,67 @@ export interface ApiReviewReview extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTvPromotionCarouselTvPromotionCarousel
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tv_promotion_carousels';
+  info: {
+    displayName: 'TV promotion Carousel';
+    pluralName: 'tv-promotion-carousels';
+    singularName: 'tv-promotion-carousel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    imgs: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tv-promotion-carousel.tv-promotion-carousel'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTvPromotionVideoTvPromotionVideo
+  extends Struct.SingleTypeSchema {
+  collectionName: 'tv_promotion_videos';
+  info: {
+    displayName: 'TV promotion Video';
+    pluralName: 'tv-promotion-videos';
+    singularName: 'tv-promotion-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tv-promotion-video.tv-promotion-video'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 
@@ -1383,6 +1444,8 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::note-for-special.note-for-special': ApiNoteForSpecialNoteForSpecial;
       'api::review.review': ApiReviewReview;
+      'api::tv-promotion-carousel.tv-promotion-carousel': ApiTvPromotionCarouselTvPromotionCarousel;
+      'api::tv-promotion-video.tv-promotion-video': ApiTvPromotionVideoTvPromotionVideo;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
